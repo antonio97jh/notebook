@@ -2,7 +2,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdio.h>
-#include "core/Editor.h"
+#include "Editor.h"
+#include "file.h"
 
 #define FICH "./move-arrows.c"
 
@@ -51,12 +52,14 @@ int main() {
         else if (ch == KEY_UP && cy > 0) cy--;
         else if (ch == KEY_DOWN && cy < 99) cy++;
         else if (ch >= 32 && ch <= 126) {
-           	text[cy][cx] = ch;
+			//Insert char into textBuffer
+           	//text[cy][cx] = ch;
 			mvwaddch(win, cy+1, cx+1, ch);
 			cx++;
         }
 		else if((ch == KEY_BACKSPACE || ch == 127) && cx > 0){
-			text[cy][--cx]= ' ';
+			//Insert char into textbuffer
+			//text[cy][--cx]= ' ';
 			mvwaddch(win, cy+1, cx+1, ' ');
 		}
 		wmove(win, cy+1, cx+1);

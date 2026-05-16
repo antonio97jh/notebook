@@ -1,5 +1,6 @@
 #include "Editor.h"
-
+#include "Cursor.h"
+#include <string.h>
 Editor *editor;
 
 void initializeEditor(){
@@ -21,7 +22,7 @@ void initializeEditor(){
 	cursor->column = 0;
 	cursor->row = 0;
 	
-	editor = (struct editor*) malloc(sizeof(editor));
+	editor = (Editor*) malloc(sizeof(Editor));
 	editor->text = textBuff;
 	editor->cursor = cursor;
 
@@ -45,30 +46,5 @@ void insertRow(char *data){
         text->last_row = auxRow;
     }
     return;    
-}
-
-void move_cursor_left(){
-	if(editor->cursor->column > 0){
-		editor->cursor->column--;
-	}
-	return;
-}
-void move_cursor_right(unsigned row_length){
-	if(editor->cursor->column < row_length){
-		editor->cursor->column++;
-	}
-	return;
-}
-void move_cursor_up(){
-	if(editor->cursor->row > 0){
-		editor->cursor->row--;
-	}
-	return;
-}
-void move_cursor_down(){
-	if(editor->cursor->row < editor->text->num_rows){
-		editor->cursor->column++;
-	}
-	return;
 }
 

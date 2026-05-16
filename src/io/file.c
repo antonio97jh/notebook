@@ -12,7 +12,7 @@ void loadFile(char* filename){
 	}
 
     while (!feof(fd)){
-        getline(data, 0, fd);
+        getline(&data, 0, fd);
         insertRow(data);
     }
     return;
